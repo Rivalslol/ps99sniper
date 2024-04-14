@@ -78,8 +78,8 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
         ['embeds'] = {
             {
 		["author"] = {
-			["name"] = "Boor Sniper 🌚",
-			["icon_url"] = "https://cdn.discordapp.com/attachments/1149218291957637132/1190527382583525416/new-moon-face_1f31a.png?ex=65a22006&is=658fab06&hm=55f8900eef039709c8e57c96702f8fb7df520333ec6510a81c31fc746193fbf2&",
+			["name"] = "Booth Sniper",
+			["icon_url"] = "https://cdn.discordapp.com/attachments/1103003907279552624/1227582415640461342/ok.png?ex=6628ee37&is=66167937&hm=f8dc6f34f379557b902ca3be6b8883dc32521c32e48e6515f2559bff4cece037&",
 		},
                 ['title'] = snipeMessage,
                 ["color"] = webcolor,
@@ -115,8 +115,8 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                     }
                 },
 		["footer"] = {
-                        ["icon_url"] = "https://cdn.discordapp.com/attachments/1149218291957637132/1190527382583525416/new-moon-face_1f31a.png?ex=65a22006&is=658fab06&hm=55f8900eef039709c8e57c96702f8fb7df520333ec6510a81c31fc746193fbf2&", -- optional
-                        ["text"] = "Heavily Modified by Root"
+                        ["icon_url"] = "https://cdn.discordapp.com/attachments/1103003907279552624/1227582415640461342/ok.png?ex=6628ee37&is=66167937&hm=f8dc6f34f379557b902ca3be6b8883dc32521c32e48e6515f2559bff4cece037&", -- optional
+                        ["text"] = "diesence"
 		}
             },
         }
@@ -179,10 +179,7 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                 local class = tostring(listing["ItemData"]["class"])
                 local unitGems = gems
 		snipeNormal = false		
-		if string.find(item, "Charm") and unitGems <= 15000 then
-                    coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
-                    return
-                elseif snipeNormalPets == true and gems == 1 then
+                if snipeNormalPets == true and gems == 1 then
                         snipeNormal = true
 		        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
@@ -201,10 +198,6 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                 elseif (item == "Titanic Christmas Present" or string.find(item, "2024 New Year")) and unitGems <= 30000 then
                     coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                     return
-		elseif class == "Charm" and unitGems <= 30000 then
-		    if not string.find(item, "Coins") and not string.find(item, "Agility") and not string.find(item, "Bonus") then
-                    	coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
-                    	return
 	            end
                 elseif class == "Egg" and unitGems <= 100000 then
                     coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
@@ -225,8 +218,6 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
 		    elseif item == "Super Lightning" then
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
-		    elseif item == "Shiny Hunter" then
-                        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
 	            end
                 end
