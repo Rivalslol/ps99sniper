@@ -146,7 +146,7 @@ local function tryPurchase(uid, gems, item, version, shiny, amount, username, cl
         end
     end)
     repeat task.wait() until signal == nil
-    local boughtPet, boughtMessage = rs.Network.Booths_RequestPurchase:InvokeServer(playerid, uid)
+    local boughtPet, boughtMessage = rs.Network.Booths_RequestPurchase:InvokeServer(playerid, { [uid] = amount })
     processListingInfo(uid, gems, item, version, shiny, amount, username, boughtPet, class, boughtMessage, snipeNormal)
 end
 
@@ -177,7 +177,7 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                 local amount = tonumber(data["_am"]) or 1
                 local playerid = message['PlayerID']
                 local class = tostring(listing["ItemData"]["class"])
-                local unitGems = gems/amount
+                local unitGems = gems
 		snipeNormal = false
 				
                 if string.find(item, "Huge") and unitGems <= 1000000 then
