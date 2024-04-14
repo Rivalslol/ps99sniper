@@ -1,13 +1,3 @@
---[[
-Credits List
-ethereum: creating the base sniper
-chocolog: providing type.huge
-Edmond: offered tips for optimization
-
-Hello from root, I won't be updating this as I have been very demotivated to update this script
-it's required to fork this for now. cya
-]]--
-
 local osclock = os.clock()
 if not game:IsLoaded() then
     game.Loaded:Wait()
