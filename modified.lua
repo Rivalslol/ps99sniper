@@ -1,8 +1,3 @@
-getgenv().webhook = "https://discord.com/api/webhooks/1229024460556734484/yFKYiVcCP9w7kcjsnMQr5Okt1nD3Swt4MaEck4iwu4IbqYsVujtZw9K0xOagKkupO6fz"
-getgenv().webhookFail = "https://discord.com/api/webhooks/1229024497944887337/lEKs5UvhGo6v8j8pQng46u55LibS0xuURNNkbS_N7X3QUqClf-h8CzkyZlApDD3W2VCK"
-getgenv().userid = "731400751343075358"
-getgenv().alts = {"", ""}
-
 local osclock = os.clock()
 if not game:IsLoaded() then
     game.Loaded:Wait()
