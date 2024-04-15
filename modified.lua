@@ -68,8 +68,8 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
         ['embeds'] = {
             {
 		["author"] = {
-			["name"] = "Booth Sniper",
-			["icon_url"] = "https://cdn.discordapp.com/attachments/1103003907279552624/1227582415640461342/ok.png?ex=6628ee37&is=66167937&hm=f8dc6f34f379557b902ca3be6b8883dc32521c32e48e6515f2559bff4cece037&",
+			["name"] = "Booth Snipa 🚶‍♂️🤑",
+			["icon_url"] = "https://cdn.discordapp.com/attachments/1149218291957637132/1190527382583525416/new-moon-face_1f31a.png?ex=65a22006&is=658fab06&hm=55f8900eef039709c8e57c96702f8fb7df520333ec6510a81c31fc746193fbf2&",
 		},
                 ['title'] = snipeMessage,
                 ["color"] = webcolor,
@@ -105,8 +105,8 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                     }
                 },
 		["footer"] = {
-                        ["icon_url"] = "https://cdn.discordapp.com/attachments/1103003907279552624/1227582415640461342/ok.png?ex=6628ee37&is=66167937&hm=f8dc6f34f379557b902ca3be6b8883dc32521c32e48e6515f2559bff4cece037&", -- optional
-                        ["text"] = "diesence"
+                        ["icon_url"] = "", -- optional
+                        ["text"] = "lalalala"
 		}
             },
         }
@@ -168,12 +168,9 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                 local playerid = message['PlayerID']
                 local class = tostring(listing["ItemData"]["class"])
                 local unitGems = gems
-		snipeNormal = false		
-                if snipeNormalPets == true and gems == 1 then
-                        snipeNormal = true
-		        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
-                        return
-                elseif class == "Pet" then
+		snipeNormal = false
+				
+                if class == "Pet" then
                     local type = Library.Directory.Pets[item]
                     if type.exclusiveLevel and unitGems <= 30000 and item ~= "Banana" and item ~= "Coin" then
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
@@ -195,8 +192,11 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                 elseif ((string.find(item, "Key") and not string.find(item, "Lower")) or string.find(item, "Ticket")) and unitGems <= 2500 then 
                     coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                     return
-                elseif class == "Enchant" and unitGems <= 50000 then
-                    if string.find(item, "Chest Mimic") then
+                elseif class == "Enchant" and unitGems <= 10000000 then
+                    if item == "Boss Chest Mimic" then 
+                        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
+                        return
+                    elseif string.find(item, "Chest Mimic") then
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
                     elseif item == "Lucky Block" then
@@ -204,10 +204,6 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                         return
                     elseif item == "Massive Comet" then
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
-                        return
-		    elseif item == "Super Lightning" then
-                        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
-                        return
                         return
 	            end
                 end
