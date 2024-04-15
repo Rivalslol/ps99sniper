@@ -5,7 +5,7 @@ end
 
 task.wait(15)
 game.Players.LocalPlayer.PlayerScripts.Scripts.Core["Idle Tracking"].Enabled = false
---game:GetService("RunService"):Set3dRenderingEnabled(false)
+game:GetService("RunService"):Set3dRenderingEnabled(false)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Rivalslol/ps99sniper/main/noti.lua"))()
 local Booths_Broadcast = game:GetService("ReplicatedStorage").Network:WaitForChild("Booths_Broadcast")
 local Players = game:GetService('Players')
