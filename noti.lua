@@ -1,6 +1,6 @@
 local notificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/laagginq/ui-libraries/main/xaxas-notification/src.lua"))();
 local notifications = notificationLibrary.new({            
-    NotificationLifetime = 13, 
+    NotificationLifetime = 999, 
     NotificationPosition = "Middle",
     
     TextFont = Enum.Font.Code,
@@ -12,4 +12,4 @@ local notifications = notificationLibrary.new({
 });
 
 notifications:BuildNotificationUI();
-notifications:Notify("Rivals Internal UI v1.2 [ LOADED ]");
+notifications:Notify("Booth Sniper LOADED");
