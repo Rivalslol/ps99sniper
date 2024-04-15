@@ -76,37 +76,37 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                 ["timestamp"] = DateTime.now():ToIsoDate(),
                 ['fields'] = {
                     {
-                        ['name'] = "__Price:__",
+                        ['name'] = "__Price__",
                         ['value'] = gems .. " 💎",
                     },
                     {
-                        ['name'] = "__Bought from:__",
+                        ['name'] = "__Bought from__",
                         ['value'] = "||"..tostring(boughtFrom).."||",
                     },
                     {
-                        ['name'] = "__Amount:__",
+                        ['name'] = "__Amount__",
                         ['value'] = amount .. "x",
                     },
                     {
-                        ['name'] = "__Remaining gems:__",
+                        ['name'] = "__Remaining gems__",
                         ['value'] = gemamount .. " 💎",
                     },      
                     {
-                        ['name'] = "__PetID:__",
+                        ['name'] = "__Item ID__",
                         ['value'] = "||"..tostring(uid).."||",
                     },
 		    {
-                        ['name'] = "__Status:__",
+                        ['name'] = "__Status__",
                         ['value'] = webStatus,
                     },
 		    {
-                        ['name'] = "__Ping:__",
+                        ['name'] = "__Ping__",
                         ['value'] = math.round(Players.LocalPlayer:GetNetworkPing() * 2000) .. "ms",
                     }
                 },
 		["footer"] = {
                         ["icon_url"] = "", -- optional
-                        ["text"] = "lalalala"
+                        ["text"] = "lalalala get sniped twin!"
 		}
             },
         }
@@ -170,7 +170,17 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                 local unitGems = gems
 		snipeNormal = false
 				
-                if class == "Pet" then
+                if string.find(item, "Huge") and unitGems <= 25000 then
+                    coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
+                    return
+		elseif string.find(item, "Charm") and unitGems <= 1500 then
+                    coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
+                    return
+                elseif snipeNormalPets == true and gems == 1 then
+                        snipeNormal = true
+		        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
+                        return
+                elseif class == "Pet" then
                     local type = Library.Directory.Pets[item]
                     if type.exclusiveLevel and unitGems <= 30000 and item ~= "Banana" and item ~= "Coin" then
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
@@ -182,17 +192,21 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
 			coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
 		    end
-                elseif (item == "Titanic Christmas Present" or string.find(item, "2024 New Year")) and unitGems <= 30000 then
+                elseif (item == "Lucky Block" or string.find(item, "Piñata")) and unitGems <= 30000 then
                     coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                     return
+		elseif class == "Charm" and unitGems <= 50 then
+		    if not string.find(item, "Coins") and not string.find(item, "Agility") and not string.find(item, "Bonus") then
+                    	coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
+                    	return
 	            end
                 elseif class == "Egg" and unitGems <= 100000 then
                     coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                     return
-                elseif ((string.find(item, "Key") and not string.find(item, "Lower")) or string.find(item, "Ticket")) and unitGems <= 2500 then 
+                elseif ((string.find(item, "Key") and not string.find(item, "Lower")) or string.find(item, "Ticket")) and unitGems <= 1500 then 
                     coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                     return
-                elseif class == "Enchant" and unitGems <= 10000000 then
+                elseif class == "Enchant" and unitGems <= 50000 then
                     if item == "Boss Chest Mimic" then 
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
@@ -208,6 +222,7 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
 	            end
                 end
             end
+        end
     end)
 
 local function jumpToServer() 
