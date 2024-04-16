@@ -70,7 +70,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
             {
 		["author"] = {
 			["name"] = "Booth Sniper",
-			["icon_url"] = "",
+			["icon_url"] = "https://cdn.discordapp.com/attachments/1103003907279552624/1227582415640461342/ok.png?ex=6628ee37&is=66167937&hm=f8dc6f34f379557b902ca3be6b8883dc32521c32e48e6515f2559bff4cece037&",
 		},
                 ['title'] = snipeMessage,
                 ["color"] = webcolor,
