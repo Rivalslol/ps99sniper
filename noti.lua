@@ -5,11 +5,11 @@ local notifications = notificationLibrary.new({
     
     TextFont = Enum.Font.Code,
     TextColor = Color3.fromRGB(124,252,0),
-    TextSize = 65,
+    TextSize = 80,
     
     TextStrokeTransparency = 0, 
     TextStrokeColor = Color3.fromRGB(0, 0, 0)
 });
 
 notifications:BuildNotificationUI();
-notifications:Notify("Booth Sniper LOADED");
+notifications:Notify("BOOTH SNIPER RUNNING");
