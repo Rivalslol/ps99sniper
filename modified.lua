@@ -70,7 +70,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
             {
 		["author"] = {
 			["name"] = "Booth Sniper",
-			["icon_url"] = "",
+			["icon_url"] = game:GetService("Players"):GetUserThumbnailAsync(game:GetService("Players").LocalPlayer.UserId, Enum.ThumbnailType.HeadShot),
 		},
                 ['title'] = snipeMessage,
                 ["color"] = webcolor,
