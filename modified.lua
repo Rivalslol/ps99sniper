@@ -1,4 +1,4 @@
-	local osclock = os.clock()
+local osclock = os.clock()
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
