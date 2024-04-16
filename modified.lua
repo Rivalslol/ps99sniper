@@ -30,7 +30,7 @@ end)
 
 local function processListingInfo(uid, gems, item, version, shiny, amount, boughtFrom, boughtStatus, class, failMessage, snipeNormal)
     local gemamount = Players.LocalPlayer.leaderstats["💎 Diamonds"].Value
-    local snipeMessage ="||".. Players.LocalPlayer.Name .. "||"
+    local snipeMessage =" .. Players.LocalPlayer.Name .. "
     local weburl, webContent, webcolor, webStatus
     local versionVal = { [1] = "Golden ", [2] = "Rainbow " }
     local versionStr = versionVal[version] or (version == nil and "")
@@ -94,7 +94,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                     },      
                     {
                         ['name'] = "__Item ID__",
-                        ['value'] = "||"..tostring(uid).."||",
+                        ['value'] = "``	"..tostring(uid).."``",
                     },
 		    {
                         ['name'] = "__Status__",
@@ -107,7 +107,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                 },
 		["footer"] = {
                         ["icon_url"] = "", -- optional
-                        ["text"] = "lalalala get sniped twin!"
+                        ["text"] = "Rivals Booth Sniper"
 		}
             },
         }
