@@ -224,6 +224,9 @@ Booths_Broadcast.OnClientEvent:Connect(function(username, message)
                     elseif item == "Massive Comet" then
                         coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
                         return
+		    elseif item == "Super Magnet" then
+                        coroutine.wrap(tryPurchase)(uid, gems, item, version, shiny, amount, username, class, playerid, buytimestamp, listTimestamp, snipeNormal)
+                        return
 	            end
                 end
             end
