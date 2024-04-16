@@ -70,7 +70,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
             {
 		["author"] = {
 			["name"] = "Booth Sniper",
-			["icon_url"] = game:GetService("Players"):GetUserThumbnailAsync(game:GetService("Players").LocalPlayer.UserId, Enum.ThumbnailType.HeadShot),
+			["icon_url"] = "",
 		},
                 ['title'] = snipeMessage,
                 ["color"] = webcolor,
@@ -105,7 +105,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                         ['value'] = math.round(Players.LocalPlayer:GetNetworkPing() * 2000) .. "ms",
                     },
 		    {
-                        ['name'] = "",
+                        ['name'] = "__Join Server__",
                         ['value'] = '```lua' .. 'Roblox.GameLauncher.joinGameInstance("' .. game.PlaceId .. '","' .. game.JobId .. '")' .. '```',
                     }
                 },
