@@ -38,7 +38,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
 	
     if boughtStatus then
 	webcolor = tonumber(0x00ff00)
-        snipeMessage = snipeMessage .. " just sniped ".. amount .."x "
+        snipeMessage = snipeMessage .. " sniped ".. amount .."x "
         webContent = mention
 	webStatus = "Success!"
 	weburl = webhook
