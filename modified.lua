@@ -1,9 +1,9 @@
-local osclock = os.clock()
+	local osclock = os.clock()
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-task.wait(15)
+task.wait(13)
 game.Players.LocalPlayer.PlayerScripts.Scripts.Core["Idle Tracking"].Enabled = false
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Rivalslol/ps99sniper/main/noti.lua"))()
@@ -106,7 +106,7 @@ local function processListingInfo(uid, gems, item, version, shiny, amount, bough
                     }
                 },
 		["footer"] = {
-                        ["icon_url"] = "", -- optional
+                        ["icon_url"] = "https://cdn.discordapp.com/avatars/731400751343075358/ae5d23a3914d153052a92466b605446f.png?size=1024", -- optional
                         ["text"] = "Rivals Booth Sniper"
 		}
             },
